@@ -1,0 +1,15 @@
+{
+  "name": "信宏 2.0 RPG",
+  "short_name": "信宏RPG",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f1115",
+  "theme_color": "#0f1115",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

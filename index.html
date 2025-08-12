@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>信宏 2.0 RPG</title>
+  <link rel="stylesheet" href="style.css" />
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1115">
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+
+</head>
+<body>
+  <header class="app-header">
+    <h1>信宏 2.0 RPG</h1>
+    <div class="level-wrap">
+      <span id="level">Lv.20</span>
+      <div class="xp-bar">
+        <div id="xp-fill" class="xp-fill" style="width:0%"></div>
+      </div>
+      <span id="xp-label">0 / 100 XP</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>屬性面板</h2>
+      <div class="stats">
+        <div class="stat"><span>力量</span><strong id="stat-strength">6</strong></div>
+        <div class="stat"><span>智慧</span><strong id="stat-wisdom">6</strong></div>
+        <div class="stat"><span>魅力</span><strong id="stat-charisma">7</strong></div>
+        <div class="stat"><span>財富</span><strong id="stat-wealth">5</strong></div>
+      </div>
+      <p class="note">每升 1 級可分配 <b>3</b> 點屬性（目前為自動分配：依任務分類加點）。</p>
+    </section>
+
+    <section class="panel">
+      <h2>今日任務（2025-08-12）</h2>
+      <ul id="daily-list" class="task-list"></ul>
+      <div class="hint">當日完成 ≥3 項：自動 +5 XP（每日一次）</div>
+    </section>
+
+    <section class="panel">
+      <h2>本週任務（ISO 週）</h2>
+      <ul id="weekly-list" class="task-list"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>成就 / 徽章</h2>
+      <ul id="badges" class="badge-list"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>設定</h2>
+      <div class="controls">
+        <button id="btn-distribute">手動分配屬性點</button>
+        <button id="btn-reset" class="danger">重置資料</button>
+        <div class="tiny">版本 v1.0（本地儲存，不上傳任何資料）</div>
+      </div>
+    </section>
+  </main>
+
+  <template id="task-item">
+    <li class="task">
+      <label>
+        <input type="checkbox" />
+        <div class="task-content">
+          <div class="task-title"></div>
+          <div class="task-sub"></div>
+        </div>
+        <span class="task-reward"></span>
+      </label>
+    </li>
+  </template>
+
+  <template id="badge-item">
+    <li class="badge"><span class="b-emoji">🏅</span><div class="b-text"></div></li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
