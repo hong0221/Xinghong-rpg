@@ -45,3 +45,15 @@ main{padding:12px;display:flex;flex-direction:column;gap:12px;max-width:780px;ma
 button{appearance:none;border:1px solid #2a2f3a;background:#141925;color:#dfe7ff;border-radius:10px;padding:10px 12px;font-size:14px}
 button:active{transform:translateY(1px)}
 button.danger{border-color:#3a2323;background:#1b1212;color:#ffd5d5}
+
+/* Levels UI */
+.levels{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.level-card{background:#11151c;border:1px solid #222734;border-radius:10px;padding:10px}
+.level-title{font-size:14px;margin:0 0 6px}
+.level-sub{font-size:12px;color:var(--muted)}
+
+/* welcome splash */
+#welcome-overlay{position:fixed;inset:0;background:#0f1115;display:flex;align-items:center;justify-content:center;z-index:9999;opacity:1;transition:opacity .4s ease;}
+#welcome-overlay.hide{opacity:0;pointer-events:none;}
+#welcome-overlay .logo{width:92px;height:92px;border-radius:22px;background:#11151c;border:1px solid #222734;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:36px;color:#fff;animation:pop .8s ease;}
+@keyframes pop{0%{transform:scale(.8);opacity:.2}60%{transform:scale(1.05);opacity:1}100%{transform:scale(1)}}

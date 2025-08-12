@@ -1,13 +1,16 @@
 
 self.addEventListener('install', function(e) {
   e.waitUntil(
-    caches.open('xinhong-rpg-cache').then(function(cache) {
+    caches.open('xinhong-rpg-cache-v21').then(function(cache) {
       return cache.addAll([
         './index.html',
         './style.css',
         './app.js',
-        './icon.png',
-        './manifest.json'
+        './levels_firebase.js',
+        './progress_sync.js',
+        './config.js',
+        './manifest.json',
+        './icon.png'
       ]);
     })
   );
