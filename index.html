@@ -2,83 +2,33 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>信宏 RPG</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#0f1115" />
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
-  </script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div id="welcome-overlay"><div class="logo">XH</div></div>
-
   <header class="app-header">
     <h1>信宏 RPG</h1>
     <div class="level-wrap">
       <span id="level">Lv.20</span>
-      <div class="xp-bar"><div id="xp-fill" class="xp-fill" style="width:0%"></div></div>
+      <div class="xp-bar"><div id="xp-fill" class="xp-fill"></div></div>
       <span id="xp-label">0 / 100 XP</span>
     </div>
   </header>
-
   <main>
-    <section class="panel">
-      <h2>屬性面板</h2>
-      <div class="stats">
-        <div class="stat"><span>力量</span><strong id="stat-strength">6</strong></div>
-        <div class="stat"><span>智慧</span><strong id="stat-wisdom">6</strong></div>
-        <div class="stat"><span>魅力</span><strong id="stat-charisma">7</strong></div>
-        <div class="stat"><span>財富</span><strong id="stat-wealth">5</strong></div>
-      </div>
-      <p class="note">升級每次可分配 <b>3</b> 點（目前為自動分配）。</p>
+    <section>
+      <h2>屬性</h2>
+      <div id="stats"></div>
     </section>
-
-    <section class="panel">
-      <h2>今日任務</h2>
-      <ul id="daily-list" class="task-list"></ul>
-      <div class="hint">當日完成 ≥3 項：+5 XP（每日一次）</div>
+    <section>
+      <h2>每日任務</h2>
+      <div id="daily-tasks"></div>
     </section>
-
-    <section class="panel">
-      <h2>本週任務（ISO 週）</h2>
-      <ul id="weekly-list" class="task-list"></ul>
-    </section>
-
-    <section class="panel">
-      <h2>成就 / 徽章</h2>
-      <ul id="badges" class="badge-list"></ul>
-    </section>
-
-    <section class="panel">
-      <h2>關卡（自動更新）</h2>
-      <div class="tiny">資料來自 Firestore（唯讀）。</div>
-      <div id="levels" class="levels"></div>
-    </section>
-
-    <section class="panel">
-      <h2>設定</h2>
-      <div class="controls">
-        <button id="btn-distribute">手動分配屬性點</button>
-        <button id="btn-reset" class="danger">重置資料</button>
-        <div class="tiny">v2.1（雲端關卡 + 進度雲備）</div>
-      </div>
+    <section>
+      <h2>每週任務</h2>
+      <div id="weekly-tasks"></div>
     </section>
   </main>
-
-  <!-- 你的 Firebase 設定（我已幫你生成 config.js） -->
-  <script src="config.js"></script>
-
-  <!-- 主要邏輯 -->
-  <script src="app.js"></script>
-
-  <!-- 關卡載入（Firebase） -->
-  <script type="module" src="levels_firebase.js"></script>
-
-  <!-- 進度雲端備份（匿名登入） -->
-  <script type="module" src="progress_sync.js"></script>
 </body>
 </html>
